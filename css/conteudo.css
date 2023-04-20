@@ -3,14 +3,15 @@
     flex-wrap: wrap;
     max-width: 800px;
     margin: 0 auto;
- }
-.conteudo > div img {
+}
+
+.conteudo>div img {
     max-width: 100%;
     display: block;
 }
-.conteudo > div{
-    flex-grow: 1; /*taxa de crescimento da imagem*/
-    flex-shrink: 1;/*taxa de encolhimento igualmente*/
-    flex-basis: 300px;/*ele divide igualmente para os dois*/
+
+.conteudo>div {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 300px;
 }
- 
