@@ -1,51 +1,74 @@
-* {
-
-    margin:0;
-    padding:0;
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 html{
-    font-size: 70%;
+    font-size: 62.7%;
 }
 
 .cabecalho {
-display: flex;
-justify-content:space-between;
-align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
 }
+
 .cabecalho img{
-    width: 30%;
-    max-width: 30%;
-    display: block;/*transforma display de linha em bloco (toda img eh display de linha)*/
+    width: 20%;
+    max-width: 20%;
+    display: block;
 }
+
 .cabecalho nav{
     display: flex;
     width: 60%;
     height: 100%;
     justify-content: space-around;
-    flex-wrap: wrap;
-
 }
-.cabecalho a {
+
+.cabecalho a{
     text-decoration: none;
-    font-size: 4em;/*em significa * o tamanho do pai*/
+    color: #fff;
+    font-size: 4em;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 700;
-    padding: 20% 0;
+    padding: 15% 0;
 }
+
+
+/* UTILIZA PSEUDO CLASSES PARA EFEITOS - HOVER */
 .cabecalho a:hover{
-    background-color: black;
-    color: azure;
-    transition-duration: 1s;
+    color: #000000;
+    background-color: #fff;
 }
 
-p:hover {
+/*ULTILIZ PSEUDO CLASSES PARA EFEITOS - HOVER */
 
+ 
+ .tit-foto{
+    font-size: 4rem;
+    text-align: center;
+    margin: 5% 0;
+ }
+
+ .conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+ }
+.conteudo > div img {
+    max-width: 100%;
+    display: block;
 }
-body{
-    font-size: 10px;
+.conteudo > div{
+    flex-grow: 1; /*taxa de crescimento da imagem*/
+    flex-shrink: 1;/*taxa de encolhimento igualmente*/
+    flex-basis: 300px;/*ele divide igualmente para os dois*/
 }
-.tit-foto{
-    font-size: 2rem;/*rem msm coisa que em porem eh baseado no root*/
-}
+ 
