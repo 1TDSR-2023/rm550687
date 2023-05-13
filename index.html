@@ -6,8 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout Flex-BOX</title>
+    
     <link rel="stylesheet" href="./css/estilo.css">
-</head> 
+    
+    <script src="./js/script.js" defer></script>
+ 
+</head>
 
 <body>
 
@@ -21,6 +25,55 @@
     </header>
 
     <h2 class="tit-foto">Seção de Fotos</h2>
+
+    <!-- <button onclick="alert(this.innerText)">CLICK</button> -->
+    
+    <button id="meu-btn">CLICK</button>
+
+
+    <!-- <script>
+        //COMENTÁRIO DE LINHA
+        /*
+            COMENTÁRIO DE BLOCO
+        */
+
+        //Declarando variáveis com a palavra reservada ( var );
+        var nr1 = 10;
+        var nr2 = 5;
+
+        //Imprimindo as variáveis com a classe ( console );
+        // console.log(nr1);
+        // console.log(nr2);
+
+        //Realizar todas as operações aritméticas e imprimir com
+        // console.log()
+
+        //ADIÇÃO
+        console.log(nr1+nr2);
+        //SUBTRAÇÃO
+        console.log(nr1-nr2);
+        //MULTIPLICAÇÃO
+        console.log(nr1*nr2);
+        //DIVISÃO
+        console.log(nr1/nr2);
+
+        //Repita as operações e adicione o seguinte texto antes e inclua a operação de apresentação do resto da última operação.
+        // RESULTADO :
+        
+        //ADIÇÃO
+        console.log("RESULTADO :" + (nr1+nr2));
+        //INTERPOLAÇÃO
+        console.log(`RESULTADO :  ${nr1+nr2}`);
+        //SUBTRAÇÃO
+        console.log("RESULTADO :" + (nr1-nr2));
+        //MULTIPLICAÇÃO
+        console.log("RESULTADO :" + (nr1*nr2));
+        //DIVISÃO
+        console.log("RESULTADO :" + (nr1/nr2));
+        //RESTO
+        console.log("RESULTADO :" + (nr1%nr2));
+
+    </script> -->
 
     <section class="conteudo">
         <div>
@@ -58,25 +111,26 @@
         </nav>
 
         <div>
-            <form action="index.html" method="GET" onsubmit="return false"></form>
-            <fieldset>
-                <legend>Contato</legend>
-                <div>
-                    <label for="">Email</label>
-                    <input type="email" name="txtEmail" id="idEmail" placeholder="Email">
-                </div>
-                <div>
-                    <label for="">Nome</label>
-                    <input type="text" name="txtNm" id="idNome" placeholder="Nome">
-                </div>
-                <div>
-                    <input type="submit" value="Enviar">
-                </div>
-            </fieldset>
-
+            <form action="index.html" method="GET" onsubmit="return false">
+                <fieldset>
+                    <legend>Contato</legend>
+                    <div>
+                        <label for="idEmail">Email</label>
+                        <input type="email" name="txtEmail" id="idEmail" placeholder="Email">
+                    </div>
+                    <div>
+                        <label for="idNome">Nome</label>
+                        <input type="text" name="txtNm" id="idNome" placeholder="Nome">
+                    </div>
+                    <div>
+                        <input type="submit" value="Enviar">
+                    </div>
+                </fieldset>
+            </form>
         </div>
-    </footer>
 
+    </footer>
+    
 </body>
 
 </html>
