@@ -130,9 +130,11 @@ try{
 
 
         localStorage.setItem("user-validado", JSON.stringify(userValidado));
-        
 
+        const token = Math.random().toString (16).substring(2);
+        // alert(token);
 
+        localStorage.setItem("user-token",token);
         //Redirect
         setTimeout(()=>{
             window.location.href = "../home.html";
