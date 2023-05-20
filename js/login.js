@@ -2,82 +2,136 @@
 
 const inputEmail = document.querySelector("#idEmail");
 
-inputEmail.addEventListener("keyup", () => {
+inputEmail.addEventListener("keyup", ()=>{
 
     const lblEmail = document.querySelector("label[for='idEmail']");
 
-    if (inputEmail.value.length < 5) {
-        inputEmail.setAttribute("style", "outline-color:#ff0000;");
-        lblEmail.setAttribute("style", "color:#ff0000;");
-    } else {
-        inputEmail.setAttribute("style", "outline-color:#00ff00;");
-        lblEmail.setAttribute("style", "color:#00ff00;");
+    if(inputEmail.value.length < 5){
+        inputEmail.setAttribute("style","outline-color:#ff0000;");
+        lblEmail.setAttribute("style","color:#ff0000;");
+    }else{
+        inputEmail.setAttribute("style","outline-color:#00ff00;");
+        lblEmail.setAttribute("style","color:#00ff00;");
     }
-
+    
 });
-const inputSenha =document.querySelector("#idPass");
+
+const inputSenha = document.querySelector("#idPass");
 const eyePass = document.querySelector(".fa");
+eyePass.addEventListener("click", ()=>{
 
-eyePass.addEventListener("click", () => {
-
-    const inputSenha = document.querySelector("#idPass");
-
-    if (inputSenha.getAttribute("type") == "password") {
-        inputSenha.setAttribute("type", "text");
-        eyePass.setAttribute("class", "fa fa-eye-slash");
-    } else {
-        inputSenha.setAttribute("type", "password");
-        eyePass.setAttribute("class", "fa fa-eye");
+console.log("VALOR : " + inputSenha.value);
+    if(inputSenha.getAttribute("type") == "password"){
+        inputSenha.setAttribute("type","text");
+        eyePass.setAttribute("class","fa fa-eye-slash");
+    }else{
+        inputSenha.setAttribute("type","password");
+        eyePass.setAttribute("class","fa fa-eye");
     }
 
 });
 
-// const usuario1 ={
 
-//     nomeCompleto: "Jose das Couves", emailUsuario: "jose@email.com", senhaUsuario: "123"
-
+//OBJETO
+// const usuario1 = {
+//     nomeCompleto : "Lucas das Couves",
+//     emailUsuario : "lucas@email.com",
+//     senhaUsuario : "123456"
 // }
 
-// const usuario2 ={
-
-//     nomeCompleto: "Jose das Couves", emailUsuario: "jose@email.com", senhaUsuario: "123"
-
+// const usuario2 = {
+//     nomeCompleto : "Juan Pelego",
+//     emailUsuario : "juan@email.com",
+//     senhaUsuario : "123456"
 // }
-
 // let listaDeUsuarios = [];
 // listaDeUsuarios.push(usuario1);
 // listaDeUsuarios.push(usuario2);
 
-let listaDeUsuarios = [{
-    nomeCompleto: "Jose das Couves", emailUsuario: "jose@email.com", senhaUsuario: "123"
-}, {
-    nomeCompleto: "Juan tulipa", emailUsuario: "juan@email.com", senhaUsuario: "123"
-}, {
-    nomeCompleto: "Derick Couves", emailUsuario: "derick@email.com", senhaUsuario: "123"
-}, {
-    nomeCompleto: "Phablo sss", emailUsuario: "phablo@email.com", senhaUsuario: "123"
-}];
-
+//LISTA DE USUÁRIOS
+let listaDeUsuarios = [
+    {
+        nomeCompleto : "Lucas das Couves",
+        emailUsuario : "lucas@email.com",
+        senhaUsuario : "123456"
+    }
+    ,
+    {
+        nomeCompleto : "Juan Pelego",
+        emailUsuario : "juan@email.com",
+        senhaUsuario : "123456"
+    }
+    ,
+    {
+        nomeCompleto : "Caio Tulipa",
+        emailUsuario : "tulipa@email.com",
+        senhaUsuario : "123456"
+    }
+    ,
+    {
+        nomeCompleto : "Derick Gouvea",
+        emailUsuario : "dede@email.com",
+        senhaUsuario : "123456"
+    }
+    ,
+    {
+        nomeCompleto : "Matheuzim Danado",
+        emailUsuario : "mateu@email.com",
+        senhaUsuario : "123456"
+    }
+    ,
+    {
+        nomeCompleto : "Leunardo Camacho",
+        emailUsuario : "leleu@email.com",
+        senhaUsuario : "123456"
+    }
+];
 
 const botaoSubmit = document.querySelector("#btnSubmit");
-botaoSubmit.addEventListener("click", () => {
 
-    const userValidado = {
-        emailUsuarioValidado: inputEmail.value,
-        senhaUsuarioValidado: inputSenha.value
+botaoSubmit.addEventListener("click", ()=>{
+
+
+    //Criando um Objeto de Validação
+    let userValidado = {
+        emailUsuarioValidado : inputEmail.value,
+        senhaUsuarioValidado : inputSenha.value
     }
 
-    listaDeUsuarios.forEach((usuario) => {
+    //Criando uma iteração com a lista de objetos para
+    // realizar a validação com o usuarioValidado
+   
+try{
 
-        if (userValidado.emailUsuarioValidado == usuario.emailUsuario && userValidado.senhaUsuarioValidado == usuario.senhaUsuario) {
+    listaDeUsuarios.forEach((usuario)=>{
+        //Realizando a validação
+        //Comparando cada objeto da lista com o objeto montado com os dados que vieram do formulário.
+        if(userValidado.emailUsuarioValidado == usuario.emailUsuario && userValidado.senhaUsuarioValidado == usuario.senhaUsuario){
             userValidado = usuario;
+            throw "VALIDADO";
         }
     });
 
-    if (userValidado.emailUsuarioValidado == inputEmail.value && userValidado.senhaUsuarioValidado == inputSenha.value) {
-        console.log("Usuario Validado")
+    throw "SENHA OU NOME DE USUÁRIO INVÁLIDOS!";
+
+}catch(msg){
+
+    const msgStatus = document.querySelector("#msgStatus");
+
+    if(msg == "VALIDADO"){
+        msgStatus.setAttribute("style","color:#00ff00");
+        msgStatus.innerHTML = `<span><strong>Usuário: ${userValidado.nomeCompleto} Login efetuado com Sucesso!</strong></span>`;
+
+        //Redirect
+        setTimeout(()=>{
+            window.location.href = "../home.html";
+        }, 3000);
+
+
+    }else{
+        msgStatus.setAttribute("style","color:#ff0000");
+        msgStatus.innerHTML = "<span><strong>Nome de usuário ou senha inválidos...</strong></span>";
     }
-    else {
-        console.log("Senha ou nome de usuario invalido!");
-    }
+}
+   
 });
